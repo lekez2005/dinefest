@@ -13,7 +13,7 @@ def call():
 	response.enqueue("Queue Demo", waitUrl="/wait")
 	return str(response)
 
-@app.route('wait', methods=['POST'])
+@app.route('/wait', methods=['POST'])
 def wait():
 	response = twiml.Response()
 	response.say(("You are number %s in the queue. Please hold." %
