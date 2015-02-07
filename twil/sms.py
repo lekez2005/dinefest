@@ -24,7 +24,7 @@ def receive_sms():
 	body = body.lower()
 	resp = twiml.Response()
 
-	if body.startswith('help'):
+	if body.startswith('info'):
 		resp.message("Commands: add <>, remove <>, list, today, tomorrow, pause, resume, stop, open")
 	elif body.startswith('pause'):
 		user = User.objects(number=from_number).first()
