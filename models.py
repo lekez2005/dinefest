@@ -3,8 +3,8 @@ __author__ = 'lekez2005'
 from mongoengine import *
 
 class User(Document):
-	number = IntField(required=True)
-	menu = ListField(field=StringField)
+	number = IntField(required=True, unique=True)
+	menu = ListField(StringField())
 	active = BooleanField(default=True)
 
 
@@ -16,7 +16,8 @@ class Food(Document):
 	link = StringField()
 
 	meta = {'indexes': [
-			{'fields': ["$name", ]}
+			{'fields': ["$name"],
+			 'default_language': 'english'}
 	]}
 
 class Meals:
