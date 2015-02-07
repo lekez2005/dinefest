@@ -83,7 +83,7 @@ def receive_sms():
 			else:
 				resp.message("{0} not in list ".format(item))
 		else:
-			resp.message(resp.message("Not registered, to start, add an item to your list"))
+			resp.message("Not registered, to start, add an item to your list")
 	elif body.startswith('today'):
 		user = User.objects(number=from_number).first()
 		if user:
@@ -93,7 +93,7 @@ def receive_sms():
 			else:
 				resp.message(messg)
 		else:
-			resp.message(resp.message("Not registered, to start, add an item to your list"))
+			resp.message("Not registered, to start, add an item to your list")
 	elif body.startswith('tomorrow'):
 		user = User.objects(number=from_number).first()
 		if user:
