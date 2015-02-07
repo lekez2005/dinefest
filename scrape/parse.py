@@ -1,17 +1,17 @@
 __author__ = 'lekez2005'
 
-import requests
 from bs4 import BeautifulSoup
 
-def parse(url):
-	r = requests.get(url)
-	if r.status_code == 200:
-		html = r.content
-		soup = BeautifulSoup(html, 'lxml')
-		for meal in soup.find_all("div", class_="field-item"):
-			pass
-	else:
-		return None
+def parse(html):
+	soup = BeautifulSoup(html, 'lxml')
+	meals = []
+	for meal in soup.find_all("div", class_="field-item"):
+		name = meal.find("div", class_="meal-title").text
+		link = meal.find('a').get('href')
+		meals.append({'name': name, 'link': link})
+	return meals
 
 
-parse('http://dining.columbia.edu/25week-three-thursday-lunch-fbc')
+#a = parse('http://dining.columbia.edu/25week-three-thursday-lunch-fbc')
+#for meal in a:
+#	print meal

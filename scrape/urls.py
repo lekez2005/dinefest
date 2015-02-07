@@ -1,6 +1,7 @@
 __author__ = 'lekez2005'
 
 import datetime
+from models import Meals
 
 
 BASE_URL = 'http://dining.columbia.edu/'
@@ -8,11 +9,6 @@ NUMBERS = {1: 'one', 2:'two', 3:'three', 4:'four', 5: 'five'}
 DAYS = {0:'monday', 1:'tuesday', 2:'wednesday',
 		3:'thursday', 4:'friday', 5:'saturday', 6: 'sunday', }
 
-class Meals:
-	BREAKFAST = 'breakfast'
-	BRUNCH = 'brunch'
-	LUNCH = 'lunch'
-	DINNER = 'dinner'
 
 class JohnJay:
 
