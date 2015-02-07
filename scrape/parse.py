@@ -7,7 +7,9 @@ def parse(html):
 	meals = []
 	for meal in soup.find_all("div", class_="field-item"):
 		name = meal.find("div", class_="meal-title").text
-		link = meal.find('a').get('href')
+		link = None
+		if meal.find('a') is not None:
+			link = meal.find('a').get('href')
 		meals.append({'name': name, 'link': link})
 	return meals
 
